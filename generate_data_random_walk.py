@@ -37,8 +37,9 @@ def is_valid_config(AM):
 # set constants
 max_step = 0.25
 max_n_steps = 50
-min_n_points = 200
+min_n_points = 2000
 AM_dims = 6
+task_dims = 7
 TC = np.array([1,1,0,0], 'float32')
 PC = np.array([0.00114,35000,1600,1.5,300000], 'float32')
 anc = 0.0
@@ -48,7 +49,7 @@ print_update = 10
 # initialize data structures
 AM_array = np.zeros((row_dump,AM_dims))
 formant_array = np.zeros((row_dump,5))
-vocal_tract_array = np.zeros((row_dump,6))
+vocal_tract_array = np.zeros((row_dump,task_dims))
 walk_start_marker = np.zeros(min_n_points)
 i = 0
 prev_i = 0

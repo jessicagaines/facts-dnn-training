@@ -71,51 +71,29 @@ def find_artic_params(internal_x,internal_y,external_x,external_y,palateCon,plot
         
     area=np.zeros(1400,'double')
     for x in range(0, 1400):
-        area[x] = np.linalg.norm([pCon_x[x*10]-newTx[x], pCon_y[x*10]-newTy[x]])
-
-    #TT40-70
-    #TB75-180
-    TTmin = 0
-    TTmax = 301
-    TBmin = 350
-    TBmax = 1400
-    TTind = np.where(area == min(area[TTmin:TTmax]))[0][0]
-    TBind = np.where(area == min(area[TBmin:TBmax]))[0][0]
-    TTCL=(TTind+400)/10
-    TTCD=min(area[TTmin:TTmax])*mm2cm
-    TBCL=(TBind+400)/10
-    TBCD=min(area[TBmin:TBmax])*mm2cm    
+        area[x] = np.linalg.norm([pCon_x[x*10]-newTx[x], pCon_y[x*10]-newTy[x]])  
     
+    CD_Den = np.linalg.norm([pCon_x[290]-newTx[29], pCon_y[290]-newTy[29]])*mm2cm #42.9 deg
+    CD_Alv = np.linalg.norm([pCon_x[1800]-newTx[180], pCon_y[1800]-newTy[180]])*mm2cm #58.0
+    CD_Pal = np.linalg.norm([pCon_x[5240]-newTx[524], pCon_y[5240]-newTy[524]])*mm2cm #92.41
+    CD_Vel = np.linalg.norm([pCon_x[8110]-newTx[811], pCon_y[8110]-newTy[811]])*mm2cm #121.1
+    CD_Pha = np.linalg.norm([pCon_x[13980]-newTx[1398], pCon_y[13980]-newTy[1398]])*mm2cm #179.82
+
     ##LA
     LA = (external_y[28] -internal_y[28])*mm2cm
-    #print('LA = ' + str(LA))
 
     ##LP
     LP = (external_x[27] -external_x[28])*mm2cm
-    #print('LP = ' + str(LP))
     
     if verbose:
-        print('TTCL = ' + str(TTCL))
-        print('TTCD = ' + str(TTCD))
-        print('TBCL = ' + str(TBCL))
-        print('TBCD = ' + str(TBCD))
+        print('TT_Den = ' + str(CD_Den))
+        print('TT_Alv = ' + str(CD_Alv))
+        print('TB_Pal = ' + str(CD_Pal))
+        print('TB_Vel = ' + str(CD_Vel))
+        print('TB_Pha = ' + str(CD_Pha))
         print('LA = ' + str(LA))
         print('LP = ' + str(LP))
-
-    #GLO for pitch?
-    TTx_values = [pCon_x[TTind*10], newTx[TTind]]
-    TTy_values = [pCon_y[TTind*10], newTy[TTind]]
-    TBx_values = [pCon_x[TBind*10], newTx[TBind]]
-    TBy_values = [pCon_y[TBind*10], newTy[TBind]]
-    #V = np.array([[newTx[0] ,newTy[0]],[newTx[4000],newTy[4000]]])
-    #PV= np.array([[pCon_x[0] ,pCon_y[0]],[pCon_x[2000],pCon_y[2000]],[pCon_x[4000],pCon_y[4000]]])
-    #V = np.array([[newTx[0] ,newTy[0]],[newTx[2000],newTy[2000]],[newTx[4000],newTy[4000]]])
-
-    #uncomment these lines to check the alignment of vectors
-    #PV= np.array([[pCon_x[0] ,pCon_y[0]],[pCon_x[4000],pCon_y[4000]],[pCon_x[8000],pCon_y[8000]],[pCon_x[12000],pCon_y[12000]],[pCon_x[14000],pCon_y[14000]]])
-    #V = np.array([[newTx[0] ,newTy[0]],[newTx[4000],newTy[4000]],[newTx[8000],newTy[8000]],[newTx[12000],newTy[12000]],[newTx[14000],newTy[14000]]])
-    #origin = [0], [0] # origin point
-
+        
     if plot:
         plt.plot(internal_x,internal_y,'o')
         # Graph:
@@ -126,23 +104,6 @@ def find_artic_params(internal_x,internal_y,external_x,external_y,palateCon,plot
         plt.figure()
         # Set x axis limit.
 
-        # plot area func
-        #plt.plot(area)
-        #plt.show()
-        # Plot points.
-
-        #plt.plot(pCon_x,pCon_y,Tx,Ty,newTx,newTy)
-        plt.plot(external_x-ref[0],external_y-ref[1],pCon_x,pCon_y,Tx,Ty,newTx,newTy)
-        plt.plot(TTx_values, TTy_values,'r')
-        plt.plot(TBx_values, TBy_values,'r')
-        plt.axis('equal')
-        plt.show()
-
-        #plt.hist(err, bins = 100)
-        #plt.quiver(*origin, PV[:,0], PV[:,1], angles='xy', scale_units='xy', scale=1)
-        #plt.quiver(*origin, V[:,0], V[:,1], angles='xy', scale_units='xy', scale=1)
-        #plt.plot(pCon_x,pCon_y,Tx,Ty,newTx,newTy)
-        #plt.show()
-    return [TTCL,TTCD,TBCL,TBCD,LA,LP]
+    return [CD_Den,CD_Alv,CD_Pal,CD_Vel,CD_Pha,LA,LP]
     
-find_artic_params(internal_x,internal_y,external_x,external_y,palateCon,plot=True,verbose=True)
+#find_artic_params(internal_x,internal_y,external_x,external_y,palateCon,plot=True,verbose=True)

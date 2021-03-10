@@ -17,9 +17,9 @@ preprocess_y = [pre.scale_0to1]
 add_derivs = {'x' : ['gradient','gradient'], 
               'y' : ['gradient','gradient']}
 jacobian = True
-test_proportion = 90/100
+test_proportion = 10/100
 np_seed = 1995
-read_path = '../training_data_cd_only/'
+read_path = '../training_data_files_random_walk_seed150/'
 write_path = 'task2maeda_a_gradient/'
 timestep = 0.005
 
