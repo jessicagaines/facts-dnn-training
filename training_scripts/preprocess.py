@@ -19,8 +19,8 @@ add_derivs = {'x' : ['gradient','gradient'],
 jacobian = True
 test_proportion = 10/100
 np_seed = 1995
-read_path = '../training_data_files_random_walk_seed150/'
-write_path = 'task2maeda_a_gradient/'
+read_path = '../training_data_3articsmove/'
+write_path = 'task2maeda_a_gradient_3artics/'
 timestep = 0.005
 
 try:

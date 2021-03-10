@@ -13,7 +13,7 @@ import os
 
 full_start = time.time()
 
-write_path = 'training_data_files_random_walk_seed150'
+write_path = 'training_data_3articsmove'
 if not os.path.isdir(write_path):
     try:
         os.mkdir(write_path)
@@ -37,7 +37,7 @@ def is_valid_config(AM):
 # set constants
 max_step = 0.25
 max_n_steps = 50
-min_n_points = 2000
+min_n_points = 60000
 AM_dims = 6
 task_dims = 7
 TC = np.array([1,1,0,0], 'float32')
@@ -84,11 +84,10 @@ while i < min_n_points:
             prev_i = i
             j += 1
         # take a step
-        step = np.zeros(7,dtype="float32")
-        rand = np.random.random(size=6)
+        rand = np.random.random(size=3)
+        pos = np.random.choice(range(6),3)
         scaled_rand = (rand * max_step*2) - max_step
-        step[0:6] = scaled_rand
-        AM += step
+        AM[pos] += scaled_rand
         formant,internal_x,internal_y,external_x,external_y= mda.maedaplant(5,29,29,29,29,TC,PC,AM,anc)
         
     end = time.time()
