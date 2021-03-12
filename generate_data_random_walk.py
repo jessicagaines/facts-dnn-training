@@ -37,7 +37,7 @@ def is_valid_config(AM):
 # set constants
 max_step = 0.25
 max_n_steps = 50
-min_n_points = 60000
+min_n_points = 100000
 AM_dims = 6
 task_dims = 7
 TC = np.array([1,1,0,0], 'float32')
