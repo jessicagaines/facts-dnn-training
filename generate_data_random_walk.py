@@ -13,7 +13,7 @@ import os
 
 full_start = time.time()
 
-write_path = 'training_data_3articsmove'
+write_path = 'training_data_3articsmove_restricted'
 if not os.path.isdir(write_path):
     try:
         os.mkdir(write_path)
@@ -28,11 +28,25 @@ def is_valid_formant(formant):
         return False
 
 def is_valid_config(AM):
-    if max(AM) > 3:
+    if AM[0]<-2.5 or AM[0]>1.5:
         return False
-    if min(AM) < -3:
+    elif AM[1] <-3.0 or AM[1] > 3.0:
         return False
-    return True
+    elif AM[2] <-1.0 or AM[2] > 2.5:
+        return False
+    elif AM[3] <-3.0 or AM[3] > 1.0:
+        return False
+    elif AM[4] <-1.3 or AM[4] > 1.3:
+        return False
+    elif AM[5] <-0.8 or AM[5] > 1.8:
+        return False
+    else:
+        return True
+    #if max(AM) > 3:
+    #    return False
+    #if min(AM) < -3:
+    #    return False
+    #return True
 
 # set constants
 max_step = 0.25

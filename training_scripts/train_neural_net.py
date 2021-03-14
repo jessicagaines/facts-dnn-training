@@ -13,13 +13,13 @@ import time
 import preprocfs as pre
 
 # define file paths
-path = 'task2maeda_a_gradient_3artics/'
+path = 'task2maeda_a_gradient_3artics_restricted/'
 data_path = path + 'data/'
 model_path = path + 'model' # path to save or load new model to/from
 
 # Hyperparameters and model architecture
 epochs = 1000
-batch_size = 128
+batch_size = 64
 hidden_layer_sizes = [128,128,128,128,128]
 hidden_layer_activation = ['relu', 'relu','relu','relu','relu']
 learning_rate = 0.0001

@@ -13,7 +13,7 @@ import preprocfs as pre
 import os
 import re
 
-path = 'task2maeda_a_gradient_3artics/'
+path = 'task2maeda_a_gradient_3artics_restricted/'
 tf_seed = 720
 np_seed = 1995
 dev_proportion = 0.1
