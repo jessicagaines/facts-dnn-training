@@ -1,0 +1,18 @@
+Architecture
+[128, 128, 128, 128, 128]
+['relu', 'relu', 'relu', 'relu', 'relu']
+Learning Rate: 0.0001
+Batch size: 64
+Data: task2maeda_a_gradient_100000_restricted/data/
+Training Time: 0hr 43min 20sec
+Initial Validation Loss During Training: 0.001019
+Min Validation Loss During Training: 1.6e-05
+
+Validation loss: 9e-06 +/- 7e-06 across 10 trials.
+Marginal losses:
+jaw_dot_dot mean error: 2.8e-05 +/- 2.1e-05
+tongue_dot_dot mean error: 3e-06 +/- 2e-06
+shape_dot_dot mean error: 2e-06 +/- 2e-06
+apex_dot_dot mean error: 1.6e-05 +/- 1.4e-05
+lip_ht_dot_dot mean error: 3e-06 +/- 2e-06
+lip_pr_dot_dot mean error: 2e-06 +/- 2e-06

@@ -13,7 +13,7 @@ import os
 
 full_start = time.time()
 
-write_path = 'training_data_3articsmove_restricted'
+write_path = 'training_data_100000_restricted'
 if not os.path.isdir(write_path):
     try:
         os.mkdir(write_path)
@@ -98,10 +98,10 @@ while i < min_n_points:
             prev_i = i
             j += 1
         # take a step
-        rand = np.random.random(size=3)
-        pos = np.random.choice(range(6),3)
+        rand = np.random.random(size=6)
+        #pos = np.random.choice(range(6),3)
         scaled_rand = (rand * max_step*2) - max_step
-        AM[pos] += scaled_rand
+        AM[0:6] += scaled_rand
         formant,internal_x,internal_y,external_x,external_y= mda.maedaplant(5,29,29,29,29,TC,PC,AM,anc)
         
     end = time.time()

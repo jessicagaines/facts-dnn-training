@@ -13,7 +13,7 @@ import time
 import preprocfs as pre
 
 # define file paths
-path = 'task2maeda_a_gradient_3artics_restricted/'
+path = 'task2maeda_a_gradient_100000_restricted/'
 data_path = path + 'data/'
 model_path = path + 'model' # path to save or load new model to/from
 
