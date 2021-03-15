@@ -82,7 +82,7 @@ while i < min_n_points:
     count = 0
     walk_start_marker[i] = 1
     # randomly walk
-    while is_valid_formant(formant) and count <= max_n_steps:
+    while is_valid_formant(formant) and is_valid_config(AM) and count <= max_n_steps:
         # store valid params
         count += 1
         vocal_tract = find_artic_params(internal_x,internal_y,external_x,external_y,palateCon,plot=False,verbose=False)

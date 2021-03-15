@@ -4,17 +4,15 @@ Architecture
 Learning Rate: 0.0001
 Batch size: 64
 Data: task2maeda_a_gradient_3artics_restricted/data/
-Training Time: 0hr 40min 29sec
-Initial Validation Loss During Training: 0.000786
-Min Validation Loss During Training: 1e-05
+Training Time: 0hr 44min 44sec
+Initial Validation Loss During Training: 0.000905
+Min Validation Loss During Training: 6e-06
 
-Validation loss: 4e-06 +/- 2e-06 across 10 trials.
+Validation loss: 3e-06 +/- 1e-06 across 10 trials.
 Marginal losses:
-jaw_dot_dot mean error: 1.2e-05 +/- 7e-06
-tongue_dot_dot mean error: 3e-06 +/- 3e-06
-shape_dot_dot mean error: 2e-06 +/- 1e-06
-apex_dot_dot mean error: 4e-06 +/- 2e-06
+jaw_dot_dot mean error: 8e-06 +/- 4e-06
+tongue_dot_dot mean error: 1e-06 +/- 1e-06
+shape_dot_dot mean error: 1e-06 +/- 0.0
+apex_dot_dot mean error: 5e-06 +/- 3e-06
 lip_ht_dot_dot mean error: 1e-06 +/- 1e-06
 lip_pr_dot_dot mean error: 1e-06 +/- 1e-06
-
-Test Loss: 9e-06
